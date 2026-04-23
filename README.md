@@ -1,22 +1,47 @@
 # Tintalk
 
-> Therapy. Built for teenagers.
+Therapy. Built for teenagers. A text-first mental health app that actually talks like a teen — and escalates to a real human when it matters.
 
-A text-first mental health app that actually talks like a teen — and escalates to a real human when it matters.
+**Status:** v0 skeleton — landing page + text-first therapy chat route. Full AI not yet wired.
 
-## What you get
+**Landing:** https://tintalk.vercel.app
 
-- **Text-first** — Most teens won't talk on video. Tintalk meets them where they already live.
-- **Human escalation** — Crisis? Licensed counselor available within 10 minutes. No wait lists.
-- **Parent loop, thoughtfully** — Teens keep control over what's shared. Parents see trends, not transcripts.
+---
 
-## Category
+## Stack
 
-Mental health. Part of a 50-product exploration of high-demand consumer and SMB markets.
+| Layer | Choice |
+|---|---|
+| Framework | Next.js 15 (App Router) |
+| Language | TypeScript (strict) |
+| Styling | Tailwind v4 |
+| Fonts | Inter via `next/font/google` |
+| Hosting | Vercel (zero config) |
+| Waitlist | https://waitlist-api-sigma.vercel.app |
 
-## Status
+## Run locally
 
-Landing page live with interactive demo and functional waitlist.
+```bash
+pnpm install
+pnpm dev
+```
 
-- **Live:** https://mukundakatta.github.io/tintalk/
-- **Waitlist API:** https://waitlist-api-sigma.vercel.app/api/waitlist
+Open http://localhost:3000.
+
+## Deploy
+
+Push to `main` — Vercel picks it up automatically. No environment variables required.
+
+## Routes
+
+| Route | Description |
+|---|---|
+| `/` | Landing page (original copy & design preserved) |
+| `/try` | v0 text-first therapy chat — type a feeling, get an empathetic canned response |
+| `/api/waitlist` | `POST { email }` → forwards to waitlist-api-sigma with `product: "tintalk"` |
+
+## What's next
+
+- Wire real AI (empathetic responses + context tracking) behind `/try`
+- Human escalation flow for crisis keywords
+- Auth + per-user session history
